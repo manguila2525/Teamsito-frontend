@@ -1,0 +1,86 @@
+body{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  
+  height:937px;
+  overflow:hidden;
+}
+
+.login{
+  background: linear-gradient(192.1deg, #1f486e 50%, #318DAD 99.02%);
+  display: flex;
+  justify-content:center;
+}
+.login__img{
+  background-image: url("../img/sinFnd.png");
+  background-position: center;
+  background-size: 119%;
+  background-repeat: no-repeat;
+  width: 600px;
+  animation:imgMove 10s infinite alternate;
+}
+
+@keyframes imgMove {
+  0%{
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.5);
+  }
+
+ 
+}
+
+.form{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 800px;
+  z-index: 10;
+}
+
+.form__group{
+  width: 300px;
+ 
+}
+
+.form__control{
+  width: 100%;
+  margin:20px 0;
+
+}
+
+.form__control input {
+  width:99%;
+  padding: 15px;
+  border: solid 1px #e2d9ca;
+  outline: none;
+  background-color: #e2d9ca;
+  border-radius: 10px;
+}
+.form__control button{
+  width:110%;
+  padding: 15px;
+  border: solid 1px #e2d9ca;
+  outline: none;
+  background-color: #40cc97;
+  color: #e2d9ca;
+  border-radius: 10px;
+  font-size: 16px;
+  transition:all .1s ease;
+  cursor: pointer;
+} 
+
+.form__control button:hover{
+  transform: scale(1.1);
+}
+.form__control input::placeholder{
+  color:rgb(65, 64, 64);
+  font-size: 16px;
+}
+
+@media screen {
+  
+}
