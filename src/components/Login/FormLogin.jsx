@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../../assets/css/loginStyle.css';
+import { handleErrorLogin } from '../../helpers/handleErrors';
 const FormLogin = () => {
-
-  const [getUsers, setGetUsers] = useState();
-
 
   const [users, setUsers] = useState({})
 
+  //MANEJADOR DE INPUTS
   const handleInput = (e) => {
     setUsers({
       ...users,
@@ -14,28 +14,13 @@ const FormLogin = () => {
     })
   }
 
-  const sendLogin = (e) => {
+  //PETICION AL SERVIDOR DE AUTENTICACION
+  const sendLogin = async (e) => {
     e.preventDefault();
-    const userFind = getUsers.filter(user => user.username === users.username && user.password === users.password)
-    if (userFind.length === 1) {
-      console.log("*** INICIANDO SESION ***")
-    }
-    if (userFind.length === 0) {
-      console.log("*** ERROR EN ALGUN DATO ***")
-    }
+    let { data } = await axios.post("http://localhost:5000/auth/login", users)
+    handleErrorLogin(data)
     e.target.reset()
   }
-
-  //PETICION DE USUARIOS AL SERVIDOR
-  const getInfo = async () => {
-    let res = await fetch("http://localhost:5000/api/users")
-    let data = await res.json()
-    setGetUsers(data)
-  }
-
-  useEffect(() => {
-    getInfo()
-  }, [])
 
   return (
     <div className="form">

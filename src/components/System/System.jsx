@@ -7,11 +7,16 @@ import '../../assets/css/systemStyle.css';
 const System = () => {
   return (
     <div>
-      <Navbar />
-      <div className="">
+      <div className="d-flex">
         <Dashboard />
-        <Main />
+        <div className="w-100">
+          <Navbar />
+          <div className="container">
+            <Main />
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
