@@ -11,8 +11,10 @@ const System = () => {
         <Dashboard />
         <div className="w-100">
           <Navbar />
-          <div className="container">
-            <Main />
+          <div className=" bg-primary">
+            <div className="border-top-left-50 container bg-info">
+              <Main />
+            </div>
           </div>
         </div>
       </div>

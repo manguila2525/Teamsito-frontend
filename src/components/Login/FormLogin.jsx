@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import '../../assets/css/loginStyle.css';
-import { handleErrorLogin } from '../../helpers/handleErrors';
+import { handleLogin } from '../../helpers/handleLogin';
 const FormLogin = () => {
 
   const [users, setUsers] = useState({})
+  const [getUser, setGetUser] = useState(null);
+
+
 
   //MANEJADOR DE INPUTS
   const handleInput = (e) => {
@@ -18,7 +22,9 @@ const FormLogin = () => {
   const sendLogin = async (e) => {
     e.preventDefault();
     let { data } = await axios.post("http://localhost:5000/auth/login", users)
-    handleErrorLogin(data)
+    handleLogin(data, Navigate)
+    setGetUser(data)
+    console.log(data)
     e.target.reset()
   }
 
